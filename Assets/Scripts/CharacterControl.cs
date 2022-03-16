@@ -5,7 +5,7 @@ using UnityEngine;
 public class CharacterControl : MonoBehaviour
 {
 	
-	public float speed = 200f;
+	public float speed = 50f;
 	
 	public Transform hipTrans;
 	public ConfigurableJoint hipJoint;
@@ -20,10 +20,11 @@ public class CharacterControl : MonoBehaviour
     void Start()
     {
         Cursor.visible = false;
+		Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
 		// Move hips based on inputs
         float horizontal = Input.GetAxisRaw("Horizontal");

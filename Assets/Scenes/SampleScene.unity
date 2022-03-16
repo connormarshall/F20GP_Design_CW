@@ -1124,7 +1124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 142ce8e3fed063a4284ff96d2f90b295, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 100
+  speed: 10
   hipTrans: {fileID: 743752680}
   hipJoint: {fileID: 743752679}
   hipRigid: {fileID: 743752676}
