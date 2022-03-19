@@ -6,43 +6,103 @@ using UnityEngine;
 public class SpaceController : MonoBehaviour
 {
     //Setting speed related movement speeds for the player ship
-    public float thrustSpeed = 20f;
-    public float liftSpeed = 4.5f;                                 //NOTE FOR GROUP: Editable to suit final speed preferences. - love Brendan
-    public float strafeSpeed = 6f;
-
-    //Stores the input by the user whilst actively moving
-    private float activeThrustSpeed; 
-    private float activeLiftSpeed;
-    private float activeStrafeSpeed;
-
-    private float thrustAcceleration = 2.5f;           //how fast the ship moves from 0-1mph etc
-    private float strafeAcceleration = 2f;              //want this to take half a second to accelerate
-    private float liftAcceleration = 2f;
+    public float thrustSpeed = 500f;
+    public float liftSpeed = 100f;                                 //NOTE FOR GROUP: Editable to suit final speed preferences. - love Brendan
+    public float strafeSpeed = 200f;
+	public float rollSpeed = 200f;
+	public float turnSpeed = 300f;
+	
+	// Deccelerates ship when no input
+	private float deccelerationRate = 0.9f;
+	private float rotDeccelerationRate = 0.1f;
+	private float thrustDrift = 0f;
+	private float strafeDrift = 0f;
+	private float liftDrift = 0f;
+	private float rotDrift = 0f;
 	
 	// Stores input values from the ShipController action map
 	private float thrustInput = 0f;
 	private float strafeInput = 0f;
 	private float liftInput = 0f;
+	private float rollInput = 0f;
+	private Vector2 mouseInput = new Vector2(0f, 0f);
+	
+	// Rigidbody of ship
+	private Rigidbody rb;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+		Cursor.lockState = CursorLockMode.Locked;
+		Cursor.visible = false;
+		
+		// Get rigidbody
+		rb = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        //gets input for axes when moving the ship
-        activeThrustSpeed = Mathf.Lerp(activeThrustSpeed, thrustInput * thrustSpeed, thrustAcceleration * Time.deltaTime);  //allows for acceleration in the ship
-        activeStrafeSpeed = Mathf.Lerp(activeStrafeSpeed, strafeInput * strafeSpeed, strafeAcceleration * Time.deltaTime); 
-        activeLiftSpeed = Mathf.Lerp(activeLiftSpeed, liftInput * liftSpeed, liftAcceleration * Time.deltaTime);
-
-        //applying the input to the ship (movement)
-        transform.position += transform.forward * activeThrustSpeed * Time.deltaTime; //always goes thrust based on rotation of the ship
-        transform.position += transform.right * activeStrafeSpeed * Time.deltaTime;    //same but for left and right
-        transform.position += transform.up * activeLiftSpeed * Time.deltaTime;   //same but for Lifting
-    }
+	
+	void FixedUpdate()
+	{
+		UpdateMovement();
+	}
+	
+	void UpdateMovement()
+	{
+		// Thrust
+		if(thrustInput > 0.1f || thrustInput < -0.1f)
+		{
+			rb.AddRelativeForce(Vector3.forward * thrustInput * thrustSpeed * Time.deltaTime);
+			thrustDrift = thrustSpeed;
+		} else {
+			rb.AddRelativeForce(Vector3.forward * thrustDrift * Time.deltaTime);
+			thrustDrift *= deccelerationRate;
+		}
+		
+		// Strafe
+		if(strafeInput > 0.1f ||strafeInput < -0.1f)
+		{
+			rb.AddRelativeForce(Vector3.right * strafeInput * strafeSpeed * Time.deltaTime);
+			strafeDrift = strafeSpeed;
+		} else {
+			rb.AddRelativeForce(Vector3.right * strafeDrift * Time.deltaTime);
+			strafeDrift *= deccelerationRate;
+		}
+		
+		// Lift
+		if(liftInput > 0.1f || liftInput < -0.1f)
+		{
+			rb.AddRelativeForce(Vector3.up * liftInput * liftSpeed * Time.deltaTime);
+			liftDrift = liftSpeed;
+		} else {
+			rb.AddRelativeForce(Vector3.up * liftDrift * Time.deltaTime);
+			liftDrift *= deccelerationRate;
+		}
+		
+		// Pitch
+		rb.AddRelativeTorque(
+			Vector3.right 
+			* Mathf.Clamp(-mouseInput.y, -1f, 1f)
+			* turnSpeed
+			* Time.deltaTime
+		);
+		
+		// Yaw
+		rb.AddRelativeTorque(
+			Vector3.up 
+			* Mathf.Clamp(mouseInput.x, -1f, 1f)
+			* turnSpeed
+			* Time.deltaTime
+		);
+		
+		// Roll
+		rb.AddRelativeTorque(
+			Vector3.forward 
+			* rollInput
+			* rollSpeed
+			* Time.deltaTime
+		);
+		
+	}
 	
 	
 	// Input System callbacks
@@ -59,6 +119,16 @@ public class SpaceController : MonoBehaviour
 	public void OnLift(InputAction.CallbackContext context)
 	{
 		liftInput = context.ReadValue<float>();
+	}
+	
+	public void OnMouse(InputAction.CallbackContext context)
+	{
+		mouseInput = context.ReadValue<Vector2>();
+	}
+	
+	public void OnRoll(InputAction.CallbackContext context)
+	{
+		rollInput = context.ReadValue<float>();
 	}
 	
 }
