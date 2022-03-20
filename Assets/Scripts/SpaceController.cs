@@ -2,15 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine;
+using Cinemachine;
 
 public class SpaceController : MonoBehaviour
 {
-    //Setting speed related movement speeds for the player ship
+	
+	// Input System script of the ship (for toggling)
+	PlayerInput input;
+	// Mass of the ship to multiply forces byte
+	public float mass = 1000f;
+	
+    // Setting speed related movement speeds for the player ship
     public float thrustSpeed = 500f;
     public float liftSpeed = 100f;                                 //NOTE FOR GROUP: Editable to suit final speed preferences. - love Brendan
     public float strafeSpeed = 200f;
 	public float rollSpeed = 200f;
-	public float turnSpeed = 300f;
+	public float xTurnSpeed = 1000f;
+	public float yTurnSpeed = 500f;
 	
 	// Deccelerates ship when no input
 	private float deccelerationRate = 0.9f;
@@ -29,6 +37,10 @@ public class SpaceController : MonoBehaviour
 	
 	// Rigidbody of ship
 	private Rigidbody rb;
+	// Occupant(s)
+	public CharacterControl occupant;
+	// Cinemachine cam for ship
+	public CinemachineVirtualCamera shipCam;
 
     // Start is called before the first frame update
     void Start()
@@ -38,6 +50,8 @@ public class SpaceController : MonoBehaviour
 		
 		// Get rigidbody
 		rb = GetComponent<Rigidbody>();
+		// Get input script
+		input = GetComponent<PlayerInput>();
     }
 
 	
@@ -51,30 +65,30 @@ public class SpaceController : MonoBehaviour
 		// Thrust
 		if(thrustInput > 0.1f || thrustInput < -0.1f)
 		{
-			rb.AddRelativeForce(Vector3.forward * thrustInput * thrustSpeed * Time.deltaTime);
+			rb.AddRelativeForce(Vector3.forward * thrustInput * thrustSpeed * mass * Time.deltaTime);
 			thrustDrift = thrustSpeed;
 		} else {
-			rb.AddRelativeForce(Vector3.forward * thrustDrift * Time.deltaTime);
+			rb.AddRelativeForce(Vector3.forward * thrustDrift * mass * Time.deltaTime);
 			thrustDrift *= deccelerationRate;
 		}
 		
 		// Strafe
 		if(strafeInput > 0.1f ||strafeInput < -0.1f)
 		{
-			rb.AddRelativeForce(Vector3.right * strafeInput * strafeSpeed * Time.deltaTime);
+			rb.AddRelativeForce(Vector3.right * strafeInput * strafeSpeed * mass *  Time.deltaTime);
 			strafeDrift = strafeSpeed;
 		} else {
-			rb.AddRelativeForce(Vector3.right * strafeDrift * Time.deltaTime);
+			rb.AddRelativeForce(Vector3.right * strafeDrift * mass *  Time.deltaTime);
 			strafeDrift *= deccelerationRate;
 		}
 		
 		// Lift
 		if(liftInput > 0.1f || liftInput < -0.1f)
 		{
-			rb.AddRelativeForce(Vector3.up * liftInput * liftSpeed * Time.deltaTime);
+			rb.AddRelativeForce(Vector3.up * liftInput * liftSpeed * mass *  Time.deltaTime);
 			liftDrift = liftSpeed;
 		} else {
-			rb.AddRelativeForce(Vector3.up * liftDrift * Time.deltaTime);
+			rb.AddRelativeForce(Vector3.up * liftDrift * mass *  Time.deltaTime);
 			liftDrift *= deccelerationRate;
 		}
 		
@@ -82,7 +96,8 @@ public class SpaceController : MonoBehaviour
 		rb.AddRelativeTorque(
 			Vector3.right 
 			* Mathf.Clamp(-mouseInput.y, -1f, 1f)
-			* turnSpeed
+			* yTurnSpeed
+			* mass
 			* Time.deltaTime
 		);
 		
@@ -90,7 +105,8 @@ public class SpaceController : MonoBehaviour
 		rb.AddRelativeTorque(
 			Vector3.up 
 			* Mathf.Clamp(mouseInput.x, -1f, 1f)
-			* turnSpeed
+			* xTurnSpeed
+			* mass
 			* Time.deltaTime
 		);
 		
@@ -99,8 +115,34 @@ public class SpaceController : MonoBehaviour
 			Vector3.forward 
 			* rollInput
 			* rollSpeed
+			* mass
 			* Time.deltaTime
 		);
+		
+	}
+	
+	void ExitShip()
+	{
+		// Stop movement
+		//this.active = false;
+		
+		// Teleport animation
+			
+		// Enable player object
+		occupant.gameObject.SetActive(true);
+		
+		// Change cinemachine cam priority
+		shipCam.Priority = 10;
+		
+		// Disable ship input
+		this.input.enabled = false;
+		
+		
+		// Unparent from ship
+		occupant.transform.parent = null;
+		
+		// Set movement active
+		occupant.active = true;
 		
 	}
 	
@@ -129,6 +171,14 @@ public class SpaceController : MonoBehaviour
 	public void OnRoll(InputAction.CallbackContext context)
 	{
 		rollInput = context.ReadValue<float>();
+	}
+	
+	public void OnEject(InputAction.CallbackContext context)
+	{
+		if(occupant != null && context.action.triggered)
+		{
+			ExitShip();
+		}
 	}
 	
 }

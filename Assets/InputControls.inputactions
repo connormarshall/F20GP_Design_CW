@@ -36,11 +36,35 @@
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "Roll",
+                    "type": "PassThrough",
+                    "id": "ba2edd0e-f660-4cf4-b6ea-055fedd61bf8",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Zoom",
+                    "type": "Value",
+                    "id": "49ac4de4-3408-47df-bc84-82a34613a87c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Interact",
+                    "type": "PassThrough",
+                    "id": "368593ac-89fc-4319-b7a6-481b16755926",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press"
                 }
             ],
             "bindings": [
                 {
-                    "name": "Thrust WASD",
+                    "name": "WASD",
                     "id": "cd8da5a7-0baa-4afb-879d-01c2a28ba491",
                     "path": "1DAxis",
                     "interactions": "",
@@ -73,7 +97,7 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "Thrust Arrows",
+                    "name": "Arrows",
                     "id": "69f5b834-979e-4288-822b-1663442c0695",
                     "path": "1DAxis",
                     "interactions": "",
@@ -106,7 +130,7 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "Strafe WASD",
+                    "name": "WASD",
                     "id": "5bb4f0f3-4fc6-4ec0-aa17-f70da7198593",
                     "path": "1DAxis",
                     "interactions": "",
@@ -139,7 +163,7 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "Strafe Arrows",
+                    "name": "Arrows",
                     "id": "783ff24b-b1ac-4b53-8239-815bb69e24ba",
                     "path": "1DAxis",
                     "interactions": "",
@@ -183,7 +207,7 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "LiftKeys",
+                    "name": "WASD",
                     "id": "602f8db9-2b62-4e53-9b69-80077c67cdf0",
                     "path": "1DAxis",
                     "interactions": "",
@@ -212,6 +236,61 @@
                     "processors": "",
                     "groups": "",
                     "action": "Lift",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "2b33f65b-5c32-442c-a3a0-f046daada8be",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7c287008-c2f7-4a68-b174-59548115580b",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Zoom",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "WASD",
+                    "id": "17b79ba1-cee4-4c25-8d39-86c9677124fb",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Roll",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "db40ea5b-b263-4999-af45-ee967cbec963",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Roll",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "4bd9fa42-a290-4cc5-908a-7b4155c1f53f",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Roll",
                     "isComposite": false,
                     "isPartOfComposite": true
                 }
@@ -260,6 +339,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "Eject",
+                    "type": "PassThrough",
+                    "id": "9fa44825-0409-40ab-a8f6-17caf2358ee9",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press"
                 }
             ],
             "bindings": [
@@ -471,6 +558,17 @@
                     "action": "Roll",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "c57cba70-b3dd-4b24-b007-43b94473dc2a",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Eject",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
