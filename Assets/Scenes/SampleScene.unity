@@ -2028,7 +2028,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7755102, y: 1}
+    m_SensorSize: {x: 2.2996633, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -3411,7 +3411,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7755102, y: 1}
+    m_SensorSize: {x: 2.2996633, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -4487,6 +4487,51 @@ CapsuleCollider:
   m_Height: 0.032773033
   m_Direction: 0
   m_Center: {x: -0.016386516, y: 0, z: 0}
+--- !u!1 &1324005903
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1324005904}
+  - component: {fileID: 1324005905}
+  m_Layer: 0
+  m_Name: Laser
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1324005904
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1324005903}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 6.668}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1629818327}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1324005905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1324005903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: add0515c38d12734a985076573524127, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  laserPrefab: {fileID: 8331614191806418704, guid: 5bf2ae433cdd78347ba4f6f0836cf8aa, type: 3}
+  range: 1000
 --- !u!4 &1355067053 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4964900801590452, guid: e7965cb5f3b6b49439772edd4131b2b0, type: 3}
@@ -5133,7 +5178,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7755102, y: 1}
+    m_SensorSize: {x: 2.2996633, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -5325,7 +5370,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7755102, y: 1}
+    m_SensorSize: {x: 2.2996633, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -5520,6 +5565,7 @@ Transform:
   - {fileID: 226480440}
   - {fileID: 956585015}
   - {fileID: 77708059}
+  - {fileID: 1324005904}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 320, z: 0}
@@ -6291,7 +6337,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7755102, y: 1}
+    m_SensorSize: {x: 2.2996633, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -6354,6 +6400,8 @@ MonoBehaviour:
   asteroidPrefab: {fileID: 4034473391995514231, guid: d8b0401189ae37c4ab4de2b89906e504, type: 3}
   fieldRadius: 100
   asteroidCount: 500
+  minAsteroidRadius: 0.5
+  maxAsteroidRadius: 5
 --- !u!114 &1868704087
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6370,7 +6418,6 @@ MonoBehaviour:
   spinSpeedMAX: 5
   thrustMIN: 0.1
   thrustMAX: 0.5
-  spinSpeed: 2
 --- !u!64 &1868704088
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -6669,7 +6716,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7755102, y: 1}
+    m_SensorSize: {x: 2.2996633, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0

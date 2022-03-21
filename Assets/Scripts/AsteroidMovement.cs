@@ -9,21 +9,22 @@ public class AsteroidMovement : MonoBehaviour
     public float thrustMIN = 0.5f;
     public float thrustMAX = 1f;
 
-    public float spinSpeed;
-
+    private float spinSpeed;
+	
+	private Rigidbody rb;
     
     void Start()
     {
         spinSpeed = Random.Range(spinSpeedMIN, spinSpeedMAX);
         float thrust = Random.Range(thrustMIN, thrustMAX);
 
-        Rigidbody rb = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>();
         rb.AddForce(transform.forward * thrust, ForceMode.Impulse);
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        transform.Rotate(Vector3.up, spinSpeed * Time.deltaTime);
+        rb.AddRelativeTorque(Vector3.up * spinSpeed * Time.deltaTime);
     }
 }
