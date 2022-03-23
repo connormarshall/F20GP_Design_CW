@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8559471238174310167}
   - component: {fileID: -2156199780141637673}
   - component: {fileID: 360683574560578570}
-  - component: {fileID: -3809949256720122363}
+  - component: {fileID: 3208235984155768101}
   m_Layer: 0
   m_Name: LaserPrefab
   m_TagString: Untagged
@@ -83,7 +83,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &-3809949256720122363
+--- !u!114 &3208235984155768101
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -99,6 +99,6 @@ MonoBehaviour:
   m_doNotOverwriteTemplateMaterialProperties: 0
   m_startPos: {x: 0, y: 0, z: 0}
   m_endPos: {x: 0, y: 0, z: 100}
-  m_lineColor: {r: 0.39607844, g: 0.7490196, b: 0.7294118, a: 0}
+  m_lineColor: {r: 0.39607844, g: 0.7490196, b: 0.7058824, a: 1}
   m_lineWidth: 2
   m_lightSaberFactor: 0.8

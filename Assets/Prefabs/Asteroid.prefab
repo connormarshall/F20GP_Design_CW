@@ -130,8 +130,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spinSpeedMIN: 1
   spinSpeedMAX: 5
-  thrustMIN: 0.5
-  thrustMAX: 1
+  thrustMIN: 0.1
+  thrustMAX: 0.2
   asteroidPrefab: {fileID: 4034473391995514231}
 --- !u!114 &-6909038909918044864
 MonoBehaviour:
@@ -146,8 +146,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   outlineMode: 1
-  outlineColor: {r: 1, g: 0.8378445, b: 0, a: 1}
-  outlineWidth: 2
+  outlineColor: {r: 1, g: 0.67995703, b: 0.24056602, a: 1}
+  outlineWidth: 1
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []

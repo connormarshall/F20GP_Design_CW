@@ -32,7 +32,7 @@ public class AsteroidBehaviour : MonoBehaviour
     {
 		
 		// If asteroid is small enough to pick up, outline it
-		if(transform.localScale.magnitude < 150f)
+		if(transform.localScale.magnitude < 200f)
 			GetComponent<Outline>().enabled = true;
 		else
 			GetComponent<Outline>().enabled = false;
@@ -69,11 +69,11 @@ public class AsteroidBehaviour : MonoBehaviour
 	private void BreakAsteroid()
 	{
 		// If asteroid is too small, don't do anything
-		if(transform.localScale.magnitude < 150f)
+		if(transform.localScale.magnitude < 200f)
 			return;
 		
 		// Generate smaller asteroids
-		int numDivisions = Random.Range(2, 4);
+		int numDivisions = Random.Range(2, 5);
 		for(int i = 0; i < numDivisions; i++) {
 			
 			float r = Random.Range(0.5f, 0.7f);

@@ -71,7 +71,7 @@ public class SpaceController : MonoBehaviour
 	
 	void Update()
 	{
-		
+		// If not holding button anymore, stop shooting
 		if(mainFireInput < 0.1f)
 			GameObject.Destroy(laser);
 		
@@ -86,9 +86,9 @@ public class SpaceController : MonoBehaviour
 			Vector3 castPosition = Camera.main.transform.position + Camera.main.transform.forward * 30f;
 			
 			// If hit, set shot to hit point, else shoot to the point at the extreme end of the laser's range.
-			if(Physics.Raycast(castPosition, Camera.main.transform.forward, out hit, 100f,  ~ignoredLayer))
+			if(Physics.Raycast(castPosition, Camera.main.transform.forward, out hit, 1000f,  ~ignoredLayer))
 			{
-				currentLaser.EndPos = muzzle.InverseTransformPoint(hit.point);
+				currentLaser.EndPos = muzzle.InverseTransformPoint(hit.point) - new Vector3(0f, 0f, 0.2f);
 				GameObject.Instantiate(sparkParticles, hit.point, Quaternion.LookRotation(hit.normal));
 				
 				// If an asteroid is hit, decrease its health
