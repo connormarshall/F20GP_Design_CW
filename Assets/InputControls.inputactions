@@ -347,6 +347,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "Press"
+                },
+                {
+                    "name": "MainFire",
+                    "type": "PassThrough",
+                    "id": "594b9525-bc62-4674-b8a2-f61e390dff33",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -567,6 +575,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Eject",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d0838094-06a9-495f-be7d-817d3d521730",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MainFire",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

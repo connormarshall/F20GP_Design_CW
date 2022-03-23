@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine;
 using Cinemachine;
+using VolumetricLines;
 
 public class SpaceController : MonoBehaviour
 {
@@ -35,12 +36,26 @@ public class SpaceController : MonoBehaviour
 	private float rollInput = 0f;
 	private Vector2 mouseInput = new Vector2(0f, 0f);
 	
+	private float mainFireInput = 0f;
+	private VolumetricLineBehavior currentLaser;
+	private GameObject laser;
+	public float asteroidDamage = 10f;
+	
 	// Rigidbody of ship
 	private Rigidbody rb;
 	// Occupant(s)
 	public CharacterControl occupant;
 	// Cinemachine cam for ship
 	public CinemachineVirtualCamera shipCam;
+	
+	// Prefab for laser
+	public GameObject laserPrefab;
+	// Prefab for spark
+	public GameObject sparkParticles;
+	// transform for muzzle laser is fired from
+	public Transform muzzle;
+	// Layer to ignore for laser raycast
+	public LayerMask ignoredLayer;
 
     // Start is called before the first frame update
     void Start()
@@ -53,6 +68,42 @@ public class SpaceController : MonoBehaviour
 		// Get input script
 		input = GetComponent<PlayerInput>();
     }
+	
+	void Update()
+	{
+		
+		if(mainFireInput < 0.1f)
+			GameObject.Destroy(laser);
+		
+		// Update laser position
+		if(currentLaser != null)
+		{
+			
+			RaycastHit hit;
+			Vector3 shotExtreme = Camera.main.transform.position + Camera.main.transform.forward * 1000f;
+			
+			// Camera position moved forward to prevent raycasting behind ship
+			Vector3 castPosition = Camera.main.transform.position + Camera.main.transform.forward * 30f;
+			
+			// If hit, set shot to hit point, else shoot to the point at the extreme end of the laser's range.
+			if(Physics.Raycast(castPosition, Camera.main.transform.forward, out hit, 100f,  ~ignoredLayer))
+			{
+				currentLaser.EndPos = muzzle.InverseTransformPoint(hit.point);
+				GameObject.Instantiate(sparkParticles, hit.point, Quaternion.LookRotation(hit.normal));
+				
+				// If an asteroid is hit, decrease its health
+				if(hit.collider.CompareTag("Asteroid"))
+				{
+					AsteroidBehaviour ast = hit.collider.gameObject.GetComponent<AsteroidBehaviour>();
+					ast.DecreaseHealth(asteroidDamage);
+				}
+				
+			} else
+				currentLaser.EndPos = muzzle.InverseTransformPoint(shotExtreme);
+				//currentLaser.EndPos = muzzle.InverseTransformPoint(shotExtreme);
+		}
+		
+	}
 
 	
 	void FixedUpdate()
@@ -147,6 +198,41 @@ public class SpaceController : MonoBehaviour
 	}
 	
 	
+	void FireLaser() {
+		
+		if(currentLaser != null)
+			return;
+		
+		RaycastHit hit;
+		if(Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, 1000f)) {
+			// Create line renderer parented to the muzzle
+			laser = GameObject.Instantiate(laserPrefab, muzzle) as GameObject;
+			// Update positions to between the muzzle and the raycast
+			Vector3 shotExtreme = Camera.main.transform.position + Camera.main.transform.forward * 1000f;
+			
+			// Camera position moved forward to prevent raycasting behind ship
+			Vector3 castPosition = Camera.main.transform.position + Camera.main.transform.forward * 30f;
+			
+			// Set reference for update method
+			currentLaser = laser.GetComponent<VolumetricLineBehavior>();
+			
+			// Set start point for laser
+			currentLaser.StartPos = new Vector3(0f, 0f, 0f);
+			
+			// If hit, set shot to hit point, else shoot to the point at the extreme end of the laser's range.
+			if(Physics.Raycast(castPosition, Camera.main.transform.forward, out hit, 1000f,  ~ignoredLayer))
+				currentLaser.EndPos = muzzle.InverseTransformPoint(hit.point);
+			else
+				currentLaser.EndPos = muzzle.InverseTransformPoint(shotExtreme);
+
+			
+			// Destroy in 2 seconds
+			//GameObject.Destroy(laser, 2f);
+		}
+		
+	}
+	
+	
 	// Input System callbacks
 	public void OnThrust(InputAction.CallbackContext context)
 	{
@@ -179,6 +265,13 @@ public class SpaceController : MonoBehaviour
 		{
 			ExitShip();
 		}
+	}
+	
+	public void OnMainFire(InputAction.CallbackContext context)
+	{
+		mainFireInput = context.ReadValue<float>();
+		if(occupant != null)
+			FireLaser();
 	}
 	
 }

@@ -10,19 +10,14 @@ public class AsteroidGenerator : MonoBehaviour
 	public float minAsteroidRadius = 0.5f;
 	public float maxAsteroidRadius = 5f;
 
-
-    
     void Start()
     {
         for (int i = 0; i < asteroidCount; i++) { 
             Transform temp = Instantiate(asteroidPrefab, Random.insideUnitSphere * fieldRadius, Random.rotation);
-            temp.localScale = temp.localScale * Random.Range(minAsteroidRadius, maxAsteroidRadius);
+			temp.localScale = temp.localScale * Random.Range(minAsteroidRadius, maxAsteroidRadius);
+			
         }
     }
-
-   
-    void Update()
-    {
-        
-    }
+	
+	
 }

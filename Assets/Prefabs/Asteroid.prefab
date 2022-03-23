@@ -14,9 +14,10 @@ GameObject:
   - component: {fileID: 8514763446706200098}
   - component: {fileID: 9023806120343091086}
   - component: {fileID: 9149832670346038014}
+  - component: {fileID: -6909038909918044864}
   m_Layer: 0
   m_Name: Asteroid
-  m_TagString: Untagged
+  m_TagString: Asteroid
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -131,4 +132,22 @@ MonoBehaviour:
   spinSpeedMAX: 5
   thrustMIN: 0.5
   thrustMAX: 1
-  spinSpeed: 0
+  asteroidPrefab: {fileID: 4034473391995514231}
+--- !u!114 &-6909038909918044864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4374829774184921037}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.8378445, b: 0, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
