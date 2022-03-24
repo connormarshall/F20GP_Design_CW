@@ -6,6 +6,7 @@ TagManager:
   tags:
   - CharacterTrigger
   - Asteroid
+  - OxygenTank
   layers:
   - Default
   - TransparentFX
