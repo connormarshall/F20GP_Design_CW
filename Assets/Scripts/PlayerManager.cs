@@ -6,7 +6,7 @@ public class PlayerManager : MonoBehaviour
 {
 
     public float currentOxygen;                         //creating some variables to enable
-    private const float maxOxygen = 100f;               //an oxygen system within the player
+    public float maxOxygen = 100f;               		//an oxygen system within the player
 
     private const float healthDecreaseRate = 1.5f;      //oxygen decrease rates
                                                         //oxygen decrease is low due to fun, best for player to
@@ -19,6 +19,11 @@ public class PlayerManager : MonoBehaviour
     
     void Update()
     {
-        currentOxygen -= healthDecreaseRate * Time.deltaTime;   //decreases player oxygen count over time
+		if(currentOxygen > 0.01f)
+			currentOxygen -= healthDecreaseRate * Time.deltaTime;   //decreases player oxygen count over time
+		else {
+			currentOxygen = 0f;
+			// death handling
+		}
     }
 }

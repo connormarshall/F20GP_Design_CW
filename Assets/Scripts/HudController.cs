@@ -7,12 +7,15 @@ public class HudController : MonoBehaviour
 {
 
     public Text altText, hullLabel;
-    public Image o2, hull, rocket, ammo;
+    public RectTransform o2, hull;
+	public Image rocket, ammo;
+	
+	public PlayerManager playerManager;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        o2.localScale = new Vector3(playerManager.currentOxygen / playerManager.maxOxygen, 1f, 1f);
     }
 
     void ShowHelpWindow()
@@ -28,6 +31,6 @@ public class HudController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        o2.localScale = new Vector3(playerManager.currentOxygen / playerManager.maxOxygen, 1f, 1f);
     }
 }

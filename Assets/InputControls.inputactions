@@ -11,7 +11,8 @@
                     "id": "43fc4b07-2c5f-4a99-a2a5-82f8a1e50a15",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Strafe",
@@ -19,7 +20,8 @@
                     "id": "687c6bbd-bd64-4577-a83f-1109f6975c7c",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Lift",
@@ -27,7 +29,8 @@
                     "id": "bfc45997-3a55-4a9d-b580-3ac89e4d56bc",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "MouseXY",
@@ -35,7 +38,8 @@
                     "id": "56348cf8-d4e5-4556-977d-966195d23bb1",
                     "expectedControlType": "Vector2",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Roll",
@@ -43,7 +47,8 @@
                     "id": "ba2edd0e-f660-4cf4-b6ea-055fedd61bf8",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Zoom",
@@ -51,7 +56,8 @@
                     "id": "49ac4de4-3408-47df-bc84-82a34613a87c",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": true
                 },
                 {
                     "name": "Interact",
@@ -59,7 +65,8 @@
                     "id": "368593ac-89fc-4319-b7a6-481b16755926",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Press"
+                    "interactions": "Press",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -306,7 +313,8 @@
                     "id": "bee56959-118c-4fa4-a0f6-1ae6bb5cbaa3",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Strafe",
@@ -314,7 +322,8 @@
                     "id": "3b1a1b95-45c4-4941-a9dc-577f90a6261d",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Lift",
@@ -322,7 +331,8 @@
                     "id": "daa2eaec-cf9b-4b83-b267-5e7bac776f41",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "MouseXY",
@@ -330,7 +340,8 @@
                     "id": "6c3434f6-4c09-4bc6-98b7-db487dbc8070",
                     "expectedControlType": "Vector2",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Roll",
@@ -338,7 +349,8 @@
                     "id": "b6d83592-82c4-4c81-923b-459d395a352c",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Eject",
@@ -346,7 +358,8 @@
                     "id": "9fa44825-0409-40ab-a8f6-17caf2358ee9",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Press"
+                    "interactions": "Press",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "MainFire",
@@ -354,7 +367,17 @@
                     "id": "594b9525-bc62-4674-b8a2-f61e390dff33",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Pickup",
+                    "type": "PassThrough",
+                    "id": "72eee0b2-9f58-4c94-bf7a-d4176260d99f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -586,6 +609,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "MainFire",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fdfca5f9-4dc1-464e-bec4-55754f577bd1",
+                    "path": "<Keyboard>/h",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pickup",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

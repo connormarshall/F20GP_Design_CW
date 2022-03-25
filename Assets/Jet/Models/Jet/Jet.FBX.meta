@@ -1,0 +1,743 @@
+fileFormatVersion: 2
+guid: 55b9fc38adf1e6f4199f757c27193d8f
+ModelImporter:
+  serializedVersion: 21100
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: Box009
+  - first:
+      1: 100002
+    second: Gun
+  - first:
+      1: 100004
+    second: Gun001
+  - first:
+      1: 100006
+    second: Gun003
+  - first:
+      1: 100008
+    second: Gun004
+  - first:
+      1: 100010
+    second: //RootNode
+  - first:
+      1: 100012
+    second: Object001
+  - first:
+      1: 100014
+    second: Object002
+  - first:
+      1: 100016
+    second: Object003
+  - first:
+      1: 100018
+    second: Object004
+  - first:
+      1: 100020
+    second: Object007
+  - first:
+      1: 100022
+    second: Object008
+  - first:
+      1: 100024
+    second: Object009
+  - first:
+      1: 100026
+    second: Object010
+  - first:
+      1: 100028
+    second: Object011
+  - first:
+      1: 100030
+    second: Object012
+  - first:
+      1: 100032
+    second: Object013
+  - first:
+      1: 100034
+    second: Object014
+  - first:
+      1: 100036
+    second: Object015
+  - first:
+      1: 100038
+    second: Object016
+  - first:
+      1: 100040
+    second: Object017
+  - first:
+      1: 100042
+    second: Object018
+  - first:
+      1: 100044
+    second: Object019
+  - first:
+      1: 100046
+    second: Object020
+  - first:
+      4: 400000
+    second: Box009
+  - first:
+      4: 400002
+    second: Gun
+  - first:
+      4: 400004
+    second: Gun001
+  - first:
+      4: 400006
+    second: Gun003
+  - first:
+      4: 400008
+    second: Gun004
+  - first:
+      4: 400010
+    second: //RootNode
+  - first:
+      4: 400012
+    second: Object001
+  - first:
+      4: 400014
+    second: Object002
+  - first:
+      4: 400016
+    second: Object003
+  - first:
+      4: 400018
+    second: Object004
+  - first:
+      4: 400020
+    second: Object007
+  - first:
+      4: 400022
+    second: Object008
+  - first:
+      4: 400024
+    second: Object009
+  - first:
+      4: 400026
+    second: Object010
+  - first:
+      4: 400028
+    second: Object011
+  - first:
+      4: 400030
+    second: Object012
+  - first:
+      4: 400032
+    second: Object013
+  - first:
+      4: 400034
+    second: Object014
+  - first:
+      4: 400036
+    second: Object015
+  - first:
+      4: 400038
+    second: Object016
+  - first:
+      4: 400040
+    second: Object017
+  - first:
+      4: 400042
+    second: Object018
+  - first:
+      4: 400044
+    second: Object019
+  - first:
+      4: 400046
+    second: Object020
+  - first:
+      23: 2300000
+    second: Box009
+  - first:
+      23: 2300002
+    second: Object001
+  - first:
+      23: 2300004
+    second: Object002
+  - first:
+      23: 2300006
+    second: Object003
+  - first:
+      23: 2300008
+    second: Object004
+  - first:
+      23: 2300010
+    second: Object007
+  - first:
+      23: 2300012
+    second: Object008
+  - first:
+      23: 2300014
+    second: Object009
+  - first:
+      23: 2300016
+    second: Object010
+  - first:
+      23: 2300018
+    second: Object011
+  - first:
+      23: 2300020
+    second: Object012
+  - first:
+      23: 2300022
+    second: Object013
+  - first:
+      23: 2300024
+    second: Object014
+  - first:
+      23: 2300026
+    second: Object015
+  - first:
+      23: 2300028
+    second: Object016
+  - first:
+      23: 2300030
+    second: Object017
+  - first:
+      23: 2300032
+    second: Object018
+  - first:
+      23: 2300034
+    second: Object019
+  - first:
+      23: 2300036
+    second: Object020
+  - first:
+      33: 3300000
+    second: Box009
+  - first:
+      33: 3300002
+    second: Object001
+  - first:
+      33: 3300004
+    second: Object002
+  - first:
+      33: 3300006
+    second: Object003
+  - first:
+      33: 3300008
+    second: Object004
+  - first:
+      33: 3300010
+    second: Object007
+  - first:
+      33: 3300012
+    second: Object008
+  - first:
+      33: 3300014
+    second: Object009
+  - first:
+      33: 3300016
+    second: Object010
+  - first:
+      33: 3300018
+    second: Object011
+  - first:
+      33: 3300020
+    second: Object012
+  - first:
+      33: 3300022
+    second: Object013
+  - first:
+      33: 3300024
+    second: Object014
+  - first:
+      33: 3300026
+    second: Object015
+  - first:
+      33: 3300028
+    second: Object016
+  - first:
+      33: 3300030
+    second: Object017
+  - first:
+      33: 3300032
+    second: Object018
+  - first:
+      33: 3300034
+    second: Object019
+  - first:
+      33: 3300036
+    second: Object020
+  - first:
+      43: 4300000
+    second: Object009
+  - first:
+      43: 4300002
+    second: Object010
+  - first:
+      43: 4300004
+    second: Object018
+  - first:
+      43: 4300006
+    second: Object017
+  - first:
+      43: 4300008
+    second: Object016
+  - first:
+      43: 4300010
+    second: Object015
+  - first:
+      43: 4300012
+    second: Object014
+  - first:
+      43: 4300014
+    second: Object013
+  - first:
+      43: 4300016
+    second: Object012
+  - first:
+      43: 4300018
+    second: Object011
+  - first:
+      43: 4300020
+    second: Object020
+  - first:
+      43: 4300022
+    second: Object019
+  - first:
+      43: 4300024
+    second: Object007
+  - first:
+      43: 4300026
+    second: Object008
+  - first:
+      43: 4300028
+    second: Object003
+  - first:
+      43: 4300030
+    second: Object004
+  - first:
+      43: 4300032
+    second: Object001
+  - first:
+      43: 4300034
+    second: Object002
+  - first:
+      43: 4300036
+    second: Box009
+  - first:
+      74: 7400000
+    second: GunsCollapseTop
+  - first:
+      74: 7400002
+    second: GunsCollapseBottom
+  - first:
+      74: 7400004
+    second: GunsShootingTop
+  - first:
+      74: 7400006
+    second: GunsShootingBottom
+  - first:
+      95: 9500000
+    second: //RootNode
+  - first:
+      111: 11100000
+    second: //RootNode
+  externalObjects: {}
+  materials:
+    materialImportMode: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: GunsCollapseTop
+      takeName: Take 001
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 15
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Box009
+        weight: 1
+      - path: Gun
+        weight: 1
+      - path: Gun/Object001
+        weight: 1
+      - path: Gun/Object002
+        weight: 1
+      - path: Gun001
+        weight: 1
+      - path: Gun001/Object003
+        weight: 1
+      - path: Gun001/Object004
+        weight: 1
+      - path: Gun003
+        weight: 1
+      - path: Gun003/Object007
+        weight: 1
+      - path: Gun003/Object008
+        weight: 1
+      - path: Gun004
+        weight: 1
+      - path: Gun004/Object009
+        weight: 1
+      - path: Gun004/Object010
+        weight: 1
+      - path: Object011
+        weight: 1
+      - path: Object012
+        weight: 1
+      - path: Object013
+        weight: 1
+      - path: Object014
+        weight: 1
+      - path: Object015
+        weight: 1
+      - path: Object016
+        weight: 1
+      - path: Object017
+        weight: 1
+      - path: Object018
+        weight: 1
+      - path: Object019
+        weight: 1
+      - path: Object020
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: GunsCollapseBottom
+      takeName: Take 001
+      internalID: 0
+      firstFrame: 10
+      lastFrame: 25
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Box009
+        weight: 1
+      - path: Gun
+        weight: 1
+      - path: Gun/Object001
+        weight: 1
+      - path: Gun/Object002
+        weight: 1
+      - path: Gun001
+        weight: 1
+      - path: Gun001/Object003
+        weight: 1
+      - path: Gun001/Object004
+        weight: 1
+      - path: Gun003
+        weight: 1
+      - path: Gun003/Object007
+        weight: 1
+      - path: Gun003/Object008
+        weight: 1
+      - path: Gun004
+        weight: 1
+      - path: Gun004/Object009
+        weight: 1
+      - path: Gun004/Object010
+        weight: 1
+      - path: Object011
+        weight: 1
+      - path: Object012
+        weight: 1
+      - path: Object013
+        weight: 1
+      - path: Object014
+        weight: 1
+      - path: Object015
+        weight: 1
+      - path: Object016
+        weight: 1
+      - path: Object017
+        weight: 1
+      - path: Object018
+        weight: 1
+      - path: Object019
+        weight: 1
+      - path: Object020
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: GunsShootingTop
+      takeName: Take 001
+      internalID: 0
+      firstFrame: 30
+      lastFrame: 38
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Box009
+        weight: 1
+      - path: Gun
+        weight: 1
+      - path: Gun/Object001
+        weight: 1
+      - path: Gun/Object002
+        weight: 1
+      - path: Gun001
+        weight: 1
+      - path: Gun001/Object003
+        weight: 1
+      - path: Gun001/Object004
+        weight: 1
+      - path: Gun003
+        weight: 1
+      - path: Gun003/Object007
+        weight: 1
+      - path: Gun003/Object008
+        weight: 1
+      - path: Gun004
+        weight: 1
+      - path: Gun004/Object009
+        weight: 1
+      - path: Gun004/Object010
+        weight: 1
+      - path: Object011
+        weight: 1
+      - path: Object012
+        weight: 1
+      - path: Object013
+        weight: 1
+      - path: Object014
+        weight: 1
+      - path: Object015
+        weight: 1
+      - path: Object016
+        weight: 1
+      - path: Object017
+        weight: 1
+      - path: Object018
+        weight: 1
+      - path: Object019
+        weight: 1
+      - path: Object020
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: GunsShootingBottom
+      takeName: Take 001
+      internalID: 0
+      firstFrame: 31
+      lastFrame: 39
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Box009
+        weight: 1
+      - path: Gun
+        weight: 1
+      - path: Gun/Object001
+        weight: 1
+      - path: Gun/Object002
+        weight: 1
+      - path: Gun001
+        weight: 1
+      - path: Gun001/Object003
+        weight: 1
+      - path: Gun001/Object004
+        weight: 1
+      - path: Gun003
+        weight: 1
+      - path: Gun003/Object007
+        weight: 1
+      - path: Gun003/Object008
+        weight: 1
+      - path: Gun004
+        weight: 1
+      - path: Gun004/Object009
+        weight: 1
+      - path: Gun004/Object010
+        weight: 1
+      - path: Object011
+        weight: 1
+      - path: Object012
+        weight: 1
+      - path: Object013
+        weight: 1
+      - path: Object014
+        weight: 1
+      - path: Object015
+        weight: 1
+      - path: Object016
+        weight: 1
+      - path: Object017
+        weight: 1
+      - path: Object018
+        weight: 1
+      - path: Object019
+        weight: 1
+      - path: Object020
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 0
+    importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    fileIdsGeneration: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 0
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 4
+    normalCalculationMode: 0
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 1
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

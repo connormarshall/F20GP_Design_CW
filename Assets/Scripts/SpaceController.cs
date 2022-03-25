@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.InputSystem;
+using UnityEngine.Audio;
 using UnityEngine;
 using Cinemachine;
 using VolumetricLines;
@@ -71,13 +72,19 @@ public class SpaceController : MonoBehaviour
 	
 	void Update()
 	{
-		// If not holding button anymore, stop shooting
-		if(mainFireInput < 0.1f)
-			GameObject.Destroy(laser);
 		
 		// Update laser position
 		if(currentLaser != null)
 		{
+			// If not holding button anymore, stop shooting
+			if(mainFireInput < 0.1f)
+			{
+				AudioSource source = laser.GetComponent<AudioSource>();
+				source.mute = true;
+				currentLaser.EndPos = new Vector3(0f, 0f, 0f);
+				StartCoroutine(DestroyLaser(source));
+				return;
+			}
 			
 			RaycastHit hit;
 			Vector3 shotExtreme = Camera.main.transform.position + Camera.main.transform.forward * 1000f;
@@ -100,9 +107,18 @@ public class SpaceController : MonoBehaviour
 				
 			} else
 				currentLaser.EndPos = muzzle.InverseTransformPoint(shotExtreme);
-				//currentLaser.EndPos = muzzle.InverseTransformPoint(shotExtreme);
 		}
 		
+	}
+	
+	public IEnumerator DestroyLaser(AudioSource source)
+	{
+		GameObject toDestroy = laser;
+		laser = null;
+		currentLaser = null;
+		
+		yield return new WaitForSeconds(1f);
+		GameObject.Destroy(toDestroy);
 	}
 
 	
@@ -200,7 +216,7 @@ public class SpaceController : MonoBehaviour
 	
 	void FireLaser() {
 		
-		if(currentLaser != null)
+		if(laser != null)
 			return;
 		
 		RaycastHit hit;
@@ -225,9 +241,6 @@ public class SpaceController : MonoBehaviour
 			else
 				currentLaser.EndPos = muzzle.InverseTransformPoint(shotExtreme);
 
-			
-			// Destroy in 2 seconds
-			//GameObject.Destroy(laser, 2f);
 		}
 		
 	}

@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class HeatlhRegen : PlayerManager
 {
+	
+	public float oxygenIncrease = 20f;
+	
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Player") {
-            Destroy(gameObject);
-            currentOxygen += 5;
+            GameObject.Destroy(gameObject);
+            collision.gameObject.GetComponentInParent<PlayerManager>().currentOxygen += 20f;
         }
     }
 }
