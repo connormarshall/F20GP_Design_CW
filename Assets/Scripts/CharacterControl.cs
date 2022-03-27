@@ -60,13 +60,18 @@ public class CharacterControl : MonoBehaviour
 	public GameObject ship;
 	// Input map to toggle when controlling player
 	public PlayerInput input;
-	
-    // Start is called before the first frame update
-    void Start()
+
+	public GameObject hud;
+	private HudController hc;
+
+	// Start is called before the first frame update
+	void Start()
     {
         Cursor.visible = false;
 		Cursor.lockState = CursorLockMode.Locked;
-    }
+
+		hc = hud.GetComponent<HudController>();
+	}
 
 	// Update is called once per frame
 	void Update()
@@ -165,7 +170,8 @@ public class CharacterControl : MonoBehaviour
 		// Enable ship movement
 		PlayerInput shipInput = ship.GetComponent<PlayerInput>();
 		shipInput.enabled = true;
-		
+
+		hc.EnterShipHUD();
 	}
 	
 	// Input System callbacks

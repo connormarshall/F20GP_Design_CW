@@ -6,31 +6,72 @@ using UnityEngine.UI;
 public class HudController : MonoBehaviour
 {
 
-    public Text altText, hullLabel;
+    public Text altText, hullLabel, helpText;
     public RectTransform o2, hull;
-	public Image rocket, ammo;
+	public Image rocket, ammo, hullBG, hullFG, helpWindow;
 	
 	public PlayerManager playerManager;
+
+    private Color32 activeColour = new Color32(255, 255, 255, 255);
+    private Color32 inactiveColour = new Color32(0, 0, 0, 255);
 
     // Start is called before the first frame update
     void Start()
     {
         o2.localScale = new Vector3(playerManager.currentOxygen / playerManager.maxOxygen, 1f, 1f);
+        altText.text = "0";
+
+        ExitShipHUD();
+        HideHelpWindow();
     }
 
-    void ShowHelpWindow()
+    public void EnterShipHUD()
     {
+        hullBG.enabled = true;
+        hullFG.enabled = true;
+        hullLabel.enabled = true;
 
+        altText.text = "100";
+        rocket.color = activeColour;
+        ammo.color = activeColour;
     }
 
-    void HideHelpWindow()
+    public void ExitShipHUD()
     {
+        hullBG.enabled = false;
+        hullFG.enabled = false;
+        hullLabel.enabled = false;
 
+        altText.text = "0";
+        rocket.color = inactiveColour;
+        ammo.color = inactiveColour;
+    }
+
+    public void ShowHelpWindow()
+    {
+        helpText.enabled = true;
+        helpWindow.enabled = true;
+    }
+
+    public void HideHelpWindow()
+    {
+        helpText.enabled = false;
+        helpWindow.enabled = false;
     }
 
     // Update is called once per frame
     void Update()
     {
         o2.localScale = new Vector3(playerManager.currentOxygen / playerManager.maxOxygen, 1f, 1f);
+        bool x = false;
+
+        if (x)
+        {
+            ShowHelpWindow();
+        }
+        else
+        {
+            HideHelpWindow();
+        }
     }
 }
