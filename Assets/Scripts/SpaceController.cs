@@ -58,12 +58,17 @@ public class SpaceController : MonoBehaviour
 	// Layer to ignore for laser raycast
 	public LayerMask ignoredLayer;
 
-    // Start is called before the first frame update
-    void Start()
+	public GameObject hud;
+	private HudController hc;
+
+	// Start is called before the first frame update
+	void Start()
     {
 		Cursor.lockState = CursorLockMode.Locked;
 		Cursor.visible = false;
-		
+
+		hc = hud.GetComponent<HudController>();
+
 		// Get rigidbody
 		rb = GetComponent<Rigidbody>();
 		// Get input script
@@ -210,7 +215,8 @@ public class SpaceController : MonoBehaviour
 		
 		// Set movement active
 		occupant.active = true;
-		
+
+		hc.ExitShipHUD();
 	}
 	
 	
