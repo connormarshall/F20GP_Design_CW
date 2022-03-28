@@ -135,13 +135,13 @@ public class CharacterControl : MonoBehaviour
 	void UpdateMovement() {
 		
 		// Thrust
-		if(thrustInput > 0.1f || thrustInput < -0.1f)
+		if(Mathf.Abs(thrustInput) > 0.01f)
 			rootRb.AddRelativeForce(Vector3.forward * thrustInput * thrust * Time.deltaTime);
 		// Strafe
-		if(strafeInput > 0.1f || strafeInput < -0.1f)
+		if(Mathf.Abs(strafeInput) > 0.01f)
 			rootRb.AddRelativeForce(Vector3.right * strafeInput * strafeThrust * Time.deltaTime);
 		// Lift
-		if(liftInput > 0.1f || liftInput < -0.1f)
+		if(Mathf.Abs(liftInput) > 0.01f)
 			rootRb.AddRelativeForce(Vector3.up * liftInput * liftThrust * Time.deltaTime);
 		
 	}

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public class HudController : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class HudController : MonoBehaviour
 
     private Color32 activeColour = new Color32(255, 255, 255, 255);
     private Color32 inactiveColour = new Color32(0, 0, 0, 255);
+	
+	public bool showHelp = true;
 
     // Start is called before the first frame update
     void Start()
@@ -63,9 +66,9 @@ public class HudController : MonoBehaviour
     void Update()
     {
         o2.localScale = new Vector3(playerManager.currentOxygen / playerManager.maxOxygen, 1f, 1f);
-        bool x = false;
+		hull.localScale = new Vector3(playerManager.currentHull / playerManager.maxHull, 1f, 1f);
 
-        if (x)
+        if (showHelp)
         {
             ShowHelpWindow();
         }
@@ -74,4 +77,11 @@ public class HudController : MonoBehaviour
             HideHelpWindow();
         }
     }
+	
+	public void toggleHelp(InputAction.CallbackContext context)
+	{
+		if(context.action.triggered)
+			showHelp = !showHelp;
+	}
+	
 }

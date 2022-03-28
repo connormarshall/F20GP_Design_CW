@@ -13,7 +13,7 @@ public class AsteroidGenerator : MonoBehaviour
     void Start()
     {
         for (int i = 0; i < asteroidCount; i++) { 
-            Transform temp = Instantiate(asteroidPrefab, Random.insideUnitSphere * fieldRadius, Random.rotation);
+            Transform temp = Instantiate(asteroidPrefab, transform.position + Random.insideUnitSphere * fieldRadius, Random.rotation);
 			temp.localScale = temp.localScale * Random.Range(minAsteroidRadius, maxAsteroidRadius);
 			
         }

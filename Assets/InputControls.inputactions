@@ -635,11 +635,39 @@
                 {
                     "name": "",
                     "id": "63a4cca3-5809-48f5-9679-25947a0848a5",
-                    "path": "<Keyboard>/b",
+                    "path": "<Keyboard>/shift",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Boost",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "GeneralControls",
+            "id": "c4a2c2d5-24db-4da8-98ad-a7b51a080a03",
+            "actions": [
+                {
+                    "name": "Help",
+                    "type": "PassThrough",
+                    "id": "9c00fc0e-ae79-4f93-a762-5565c521ef70",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "1a3040c1-97ca-4b1e-87bc-f3aab0b59c3a",
+                    "path": "<Keyboard>/h",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Help",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

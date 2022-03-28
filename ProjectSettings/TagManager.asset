@@ -7,6 +7,8 @@ TagManager:
   - CharacterTrigger
   - Asteroid
   - OxygenTank
+  - Thruster
+  - Enemy
   layers:
   - Default
   - TransparentFX

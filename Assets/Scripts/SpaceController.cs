@@ -35,6 +35,7 @@ public class SpaceController : MonoBehaviour
 	private float strafeInput = 0f;
 	private float liftInput = 0f;
 	private float rollInput = 0f;
+	private float boostInput = 0f;
 	private Vector2 mouseInput = new Vector2(0f, 0f);
 	
 	private float mainFireInput = 0f;
@@ -110,6 +111,13 @@ public class SpaceController : MonoBehaviour
 					ast.DecreaseHealth(asteroidDamage);
 				}
 				
+				// If an enemy is hit
+				if(hit.collider.CompareTag("Enemy"))
+				{
+					EnemySpaceController enemy = hit.collider.gameObject.GetComponent<EnemySpaceController>();
+					enemy.DecreaseHealth(asteroidDamage);
+				}
+				
 			} else
 				currentLaser.EndPos = muzzle.InverseTransformPoint(shotExtreme);
 		}
@@ -134,10 +142,17 @@ public class SpaceController : MonoBehaviour
 	
 	void UpdateMovement()
 	{
-		// Thrust
-		if(thrustInput > 0.1f || thrustInput < -0.1f)
+		float boost = 1f;
+		if(boostInput > 0.01f)
 		{
-			rb.AddRelativeForce(Vector3.forward * thrustInput * thrustSpeed * mass * Time.deltaTime);
+			Debug.Log("aaah");
+			boost = 4f;
+		}
+		
+		// Thrust
+		if(Mathf.Abs(thrustInput) > 0.01f)
+		{
+			rb.AddRelativeForce(Vector3.forward * thrustInput * thrustSpeed * mass * boost * Time.deltaTime);
 			thrustDrift = thrustSpeed;
 		} else {
 			rb.AddRelativeForce(Vector3.forward * thrustDrift * mass * Time.deltaTime);
@@ -145,9 +160,9 @@ public class SpaceController : MonoBehaviour
 		}
 		
 		// Strafe
-		if(strafeInput > 0.1f ||strafeInput < -0.1f)
+		if(Mathf.Abs(strafeInput) > 0.01f)
 		{
-			rb.AddRelativeForce(Vector3.right * strafeInput * strafeSpeed * mass *  Time.deltaTime);
+			rb.AddRelativeForce(Vector3.right * strafeInput * strafeSpeed * mass * boost * Time.deltaTime);
 			strafeDrift = strafeSpeed;
 		} else {
 			rb.AddRelativeForce(Vector3.right * strafeDrift * mass *  Time.deltaTime);
@@ -155,9 +170,9 @@ public class SpaceController : MonoBehaviour
 		}
 		
 		// Lift
-		if(liftInput > 0.1f || liftInput < -0.1f)
+		if(Mathf.Abs(liftInput) > 0.01f)
 		{
-			rb.AddRelativeForce(Vector3.up * liftInput * liftSpeed * mass *  Time.deltaTime);
+			rb.AddRelativeForce(Vector3.up * liftInput * liftSpeed * mass * boost * Time.deltaTime);
 			liftDrift = liftSpeed;
 		} else {
 			rb.AddRelativeForce(Vector3.up * liftDrift * mass *  Time.deltaTime);
@@ -276,6 +291,12 @@ public class SpaceController : MonoBehaviour
 	public void OnRoll(InputAction.CallbackContext context)
 	{
 		rollInput = context.ReadValue<float>();
+	}
+	
+	public void OnBoost(InputAction.CallbackContext context)
+	{
+		Debug.Log("triggered");
+		boostInput = context.ReadValue<float>();
 	}
 	
 	public void OnEject(InputAction.CallbackContext context)
